@@ -1,6 +1,5 @@
 ### rollup-plugin-csp-html-linter
-A Rollup plugin to parse HTML files and report any Content Security Policy Violations. This plugin is based on the csp-html-linter package.
-
+A Rollup plugin designed to analyze HTML and identify potential breaches of Content Security Policy (CSP) rules. The goal is to prevent CSP violations from infiltrating your codebase during the build process. This plugin is based on the [csp-html-linter](https://www.npmjs.com/package/csp-html-linter) package.
 ### Install
 
 Using npm:
