@@ -1,0 +1,40 @@
+{
+  "name": "rollup-plugin-csp-html-linter",
+  "version": "1.0.0",
+  "description": "A Rollup plugin to lint your HTML for Content Security Policy Violations.",
+  "main": "index.js",
+  "keywords": [
+    "rollup-plugin",
+    "rollup",
+    "lint",
+    "rollup-plugin-csp-html-linter",
+    "content security policy html linting"
+  ],
+  "scripts": {
+    "test": "jest index.spec.js"
+  },
+  "files": [
+    "index.js",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdownes/rollup-plugin-csp-html-linter.git"
+  },
+  "author": {
+    "name": "Maurice Downes",
+    "url": "https://advancedfontends.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "csp-html-linter": "^1.0.1",
+    "rollup-pluginutils": "^2.8.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "jest": "^29.5.0"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
