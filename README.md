@@ -13,7 +13,7 @@ By default this plugin is strict, to reduce the most common XSS attack vectors.
 Create a rollup.config.js configuration file and import the plugin:
 
 ```
-import cspHtmlLinter from 'rollup-plugin-csp-html-linter';
+import { rollupCspHtmlLinter } from 'rollup-plugin-csp-html-linter';
 
 export default {
     input: 'src/index.js',
@@ -22,7 +22,7 @@ export default {
         format: 'esm'
     },
     plugins: [
-         cspHtmlLinter({include: '**/*.html'}),
+         rollupCspHtmlLinter({include: '**/*.html'}),
     ],
 }
 ```
@@ -31,7 +31,7 @@ export default {
 Create a rollup.config.js configuration file and import the plugin:
 
 ```
-import cspHtmlLinter from 'rollup-plugin-csp-html-linter';
+import { rollupCspHtmlLinter } from 'rollup-plugin-csp-html-linter';
 
 export default {
     input: 'src/index.js',
@@ -40,7 +40,7 @@ export default {
         format: 'esm'
     },
     plugins: [
-         cspHtmlLinter({
+         rollupCspHtmlLinter({
             include: '**/*.html', 
             allowInlineStyles: true,
             allowInlineJs: true,

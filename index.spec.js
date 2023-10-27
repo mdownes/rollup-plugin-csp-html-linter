@@ -1,5 +1,6 @@
 const { expect } = require('chai');
-const cspHtmlLint = require('./index');
+const { rollupCspHtmlLinter, resetViolations } = require('./index');
+
 
 let mockCreateFilterValue = true;
 jest.mock('rollup-pluginutils', () => ({
@@ -9,6 +10,7 @@ jest.mock('rollup-pluginutils', () => ({
 describe('rollup-plugin-csp-html-linter', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    resetViolations();
   });
 
   it('should throw an error for all selectors', async () => {
@@ -36,7 +38,7 @@ describe('rollup-plugin-csp-html-linter', () => {
     const id = 'example.html';
 
     try {
-      const plugin = cspHtmlLint(options);
+      const plugin = rollupCspHtmlLinter(options);
       await plugin.transform(code, id);
       plugin.buildEnd();
     } catch (error) {
@@ -70,7 +72,7 @@ describe('rollup-plugin-csp-html-linter', () => {
     const id = 'example.html';
 
     try {
-      const plugin = cspHtmlLint(options);
+      const plugin = rollupCspHtmlLinter(options);
       await plugin.transform(code, id);
       plugin.buildEnd();
     } catch (error) {
@@ -130,7 +132,7 @@ describe('rollup-plugin-csp-html-linter', () => {
     const id = 'example.html';
 
     try {
-      const plugin = cspHtmlLint(options);
+      const plugin = rollupCspHtmlLinter(options);
       await plugin.transform(code, id);
       plugin.buildEnd();
     } catch (error) {
@@ -163,7 +165,7 @@ describe('rollup-plugin-csp-html-linter', () => {
     const id = 'example.html';
 
     try {
-      const plugin = cspHtmlLint(options);
+      const plugin = rollupCspHtmlLinter(options);
       await plugin.transform(code, id);
       plugin.buildEnd();
     } catch (error) {
@@ -192,7 +194,7 @@ describe('rollup-plugin-csp-html-linter', () => {
     const id = 'example.html';
 
     try {
-      const plugin = cspHtmlLint(options);
+      const plugin = rollupCspHtmlLinter(options);
       await plugin.transform(code, id);
       plugin.buildEnd();
     } catch (error) {
@@ -222,7 +224,7 @@ describe('rollup-plugin-csp-html-linter', () => {
     const id = 'example.html';
 
     try {
-      const plugin = cspHtmlLint(options);
+      const plugin = rollupCspHtmlLinter(options);
       await plugin.transform(code, id);
       plugin.buildEnd();
     } catch (error) {

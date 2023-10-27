@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-csp-html-linter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Rollup plugin to lint your HTML for Content Security Policy Violations.",
   "main": "index.js",
   "keywords": [

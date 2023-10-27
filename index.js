@@ -1,9 +1,12 @@
 const { createFilter } = require('rollup-pluginutils');
 const cspHtmlLinter = require('csp-html-linter');
+let violations = [];
 
-module.exports = function cspHtmlLint(options = {}) {
+function resetViolations() {
+  violations = [];
+}
+function rollupCspHtmlLinter(options = {}) {
   const filter = createFilter(options.include || '**/*.html', options.exclude);
-  let violations = [];
 
   return {
     name: 'rollup-csp-html-linter',
@@ -14,13 +17,28 @@ module.exports = function cspHtmlLint(options = {}) {
       }
 
       if (id.indexOf('.html') >= -1) {
-        violations = cspHtmlLinter.parse(code, options);
+        let result = cspHtmlLinter.parse(code, options);
+        if (result.length > 0) {
+          violations = violations.concat(mapViolations(result, id));
+        }
       }
     },
     buildEnd() {
       if (violations.length > 0) {
-        throw Error(`CSP Violations were found. \n${violations.join('\n')}`);
+        let result = (violations.map(v => `${v.violation}\n${v.file}`)).join('\n');
+        throw Error(`CSP Violations were found. \n${result} `);
       }
     }
   };
 };
+
+function mapViolations(messages, id) {
+  let violations = [];
+  messages.forEach((v) => {
+    violations.push({ file: id, violation: v });
+  });
+
+  return violations;
+}
+
+module.exports = { rollupCspHtmlLinter, resetViolations };
