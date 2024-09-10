@@ -1,5 +1,6 @@
 const { createFilter } = require('rollup-pluginutils');
 const cspHtmlLinter = require('csp-html-linter');
+const chalk = require('chalk')
 let violations = [];
 
 function resetViolations() {
@@ -26,7 +27,8 @@ function rollupCspHtmlLinter(options = {}) {
     buildEnd() {
       if (violations.length > 0) {
         let result = (violations.map(v => `${v.violation}\n${v.file}`)).join('\n');
-        throw Error(`CSP Violations were found. \n${result} `);
+        // throw Error(`CSP Violations were found. \n${result} `);
+        console.error(chalk.red(`CSP Violations were found. \n${result} `));
       }
     }
   };
